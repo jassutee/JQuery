@@ -1,0 +1,43 @@
+<!–-- raw --–>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    //Tätä en vaan saanut toimimaan ilman perus JavaScriptiä...
+    //$("#poistetaan").checked = true;
+    document.getElementById("poistetaan").checked = true;
+
+    $("#ostettava").click(function () {
+        $('#ostettava').select();
+    });
+    $('#lisää-nappi').click(function () {
+        var arvo = $('#ostettava').val();
+        var ostos = $('<li></li>').text(arvo);
+        ostos.click(function (ostos) {
+            if (document.getElementById("poistetaan").checked) {
+                $(ostos.target).fadeOut();
+            } else if (document.getElementById("värjätään").checked) {
+                $(ostos.target).css("color", "lightgrey");
+            }
+        });
+        $('#ostoslista').append(ostos);
+        $('#ostettava').val("");
+        $('#ostettava').select();
+    });
+});
+</script>
+<p> Tässä on ensimmäinen JavaScript-toteutukseni. Katsoin koodia luentodemosta, tein siihen omia parannuksia ja muokkauksia. Kyseessä on interaktiivinen ostoslista, josta listaan lisätyt tuotteet voidaan poistaa tai värjätä haaleaksi mielen mukaan. Ostoslistaa on mukava käyttää, sillä lisättyä tuotteen voi suoraan kirjoittaa uuden tuotteen klikkaamatta ensin kirjoituskenttää. Yritin myös etsiä ja toteuttaa Enterin käytön ostoksen lisäämiseksi napin klikkaamisen sijasta, mutta en löytänyt tarpeeksi siihen liittyvää tietoa ja esimerkkejä. <br>
+Ostoslistan jälkeen on esitelty sen JQuery-koodi.
+</p>
+<h1>Ostoslista</h1>
+<p>Onko aika käydä kaupassa? Lisää ostoslistaan tarvittavat tuotteet. Kaupassa ollessasi, voit kätevästi klikata ostoksen pois listalta, kun olet sen jo pistänyt ostoskoriisi!</p>
+<form>Mitä tehdään klikatuille tuotteille?
+    <br>Ostetut tuotteet
+    <input type="radio" id="poistetaan" name="ostetut">poistetaan
+    <input type="radio" id="värjätään" name="ostetut">väritetään
+</form>
+<ul id="ostoslista"></ul>
+<div>Mitä tarvitaan?
+    <input type="text" id="ostettava" value="Porkkanoita kenties?" />
+    <button id="lisää-nappi">Lisää listalle</button>
+</div>
+<!–-- raw –-->

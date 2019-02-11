@@ -1,0 +1,43 @@
+<!---raw--->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    var luku = 1;
+    $("#tulos").text(luku);
+    $("#plus").click(function () {
+        luku += 1;
+        $("#tulos").text(luku);
+    });
+    $("#minus").click(function () {
+        luku -= 1;
+        $("#tulos").text(luku);
+    });
+    $("#jakojäännös").click(function () {
+        luku %= 10;
+        $("#tulos").text(luku);
+    });
+$("#kertoma").click(function () {
+if (luku > 2) {        
+var i = luku-1;
+while (i > 1) {
+luku *= i;
+i -= 1;
+}
+} else if (luku === 0) {
+luku = 1;
+}
+        $("#tulos").text(luku);
+    });
+});
+</script>
+<!---raw--->
+<p>Toisena toteutuksenani tein pienimuotoisen laskimen. Alunperin mietin "klikkailupeliä", mutta tässä voi myös kätevästi vähentää tai kasvattaa arvoa huomattavasti jakojäännöksellä ja kertomalla. Napit muuttavat alhaalla näkyvää lukua napin osoittamalla tavalla. Jakojäännös on toteutettu JavaScriptin omalla %-funktiolla, ja tulos on sen mukainen. Kertoma toteutetaan vain, jos luku on suurempi kuin 2 tai 0 (sillä negatiivisille luvuille ei ole kertomaa, ja n!=n, kun 0&lt;n&lt;3). Laskimen alla on sen toteuttava JQuery-koodi esiteltynä.</p>
+
+<h1>Laskin</h1>
+<button id="plus" value="+1">+1</button>
+<button id="minus" value="-1">-1</button>
+<button id="jakojäännös" value="/10, jää">/10, jää</button>
+<button id="kertoma" value="!">!</button>
+<p>Tulos on:
+    <div id="tulos"></div>
+</p>

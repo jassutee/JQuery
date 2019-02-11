@@ -1,0 +1,22 @@
+<!–-- raw --–>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#nappi1").click(function () {
+        $("#hyvä").append("Hyvä! :) ");
+    });
+    $("#nappi").click(function () {
+        $("#huono").append("Huono! :( ");
+    });
+});
+</script>
+<!–-- raw –-->
+<p>Tässä toteutuksessani voivat vertaisarvioijat klikkailla napeista, mitä mieltä olivat kaikista toteutuksistani (tämä mukaan lukien). Kun on saanut tarpeeksi annettua kehuja/haukkuja, voi alimmat rivit vaikkapa copy-pastettaa kommentin lisäksi! Alla on esiteltynä JQuery-koodi.<p>
+
+<h1>Palaute</h1>
+
+<h3>Mitäs sanot?</h3>
+<button id="nappi1">Hyvä!</button>
+<button id="nappi">Huono!</button>
+<p id="hyvä"></p>
+<p id="huono"></p>
